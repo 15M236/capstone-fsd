@@ -18,7 +18,8 @@ export default function Products() {
   const img = "https://via.placeholder.com/150"
   
   const listProducts = async() =>{
-    let token = sessionStorage.getItem('token');
+    if(sessionStorage.getItem('token')) {
+      let token = sessionStorage.getItem('token');
     let res =await axios.get(`${env.apiUrl}/users/products`,{
       headers:{"Authorization":`Bearer ${token}`}
     })
@@ -30,22 +31,17 @@ export default function Products() {
     {
       navigate('/login')
     }
-    console.log(res)
+    }
+      else {
+        setSession("Not logged in")
+        setTimeout(() => {
+          navigate('/login')
+        }, 2000)
+      }
   }
-
-  useEffect(() => {
-    if(sessionStorage.getItem('token')) {
+  useEffect(() => { 
       listProducts();
-    }
-    else {
-      setSession("Not logged in")
-      setTimeout(() => {
-        navigate('/login')
-      }, 2000)
-    }
-    
-  })
-
+  },)
   const handleEdit = (product) => {
     return <>
       <AddProduct value={product}/>
