@@ -44,7 +44,7 @@ export default function Products() {
       }, 2000)
     }
     
-  },[])
+  })
 
   const handleEdit = (product) => {
     return <>

@@ -27,7 +27,7 @@ export default function CustomerDashBoard() {
 
   useEffect(() => {
     listbills()
-  },[])
+  })
   return (
     <div>
       <Button variant="primary" onClick={() => navigate('/users/products')} >List Products</Button>
