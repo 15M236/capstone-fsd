@@ -14,11 +14,10 @@ export default function Login() {
   let [toggle,setToggle]=useState(false)
   let [message,setMessage]=useState("")
   let navigate = useNavigate()
-  env.apiurl = "http://localhost:4000"
+  env.apiurl = "https://capstone-fsd.herokuapp.com"
 
   let handleLogin = async ()=>{
     setToggle(true)
-    console.log(env.apiurl)
     let res = await axios.post(`${env.apiurl}/users/login`,{
       email,
       password
@@ -26,7 +25,6 @@ export default function Login() {
     if(res.data.statusCode===200)
     {
       setToggle(false)
-      console.log(res.data)
       sessionStorage.setItem('token',res.data.token)
       sessionStorage.setItem('role',res.data.role)
       sessionStorage.setItem('email',res.data.email)
