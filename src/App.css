@@ -2,37 +2,35 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login-wrapper{
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-main-wrapper{
+  width: 450px;
+  margin-left: 35%;
+  margin-right: 35%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.icons {
+  background-color: blue;
+  justify-content: left;
 }
 
-.App-link {
-  color: #61dafb;
+.product-form-wrapper {
+  /* width : 50%; */
+  align-items : center;
+  text-align:center;
+  margin-left : 25%;
+  margin-right : 25%;
 }
+/* 
+.card-wrapper {
+  border : 1px solid ;
+  margin : 10px;
+  border-style : dashed;
+} */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.table-row details {
+  cursor: pointer;
 }
