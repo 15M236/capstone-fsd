@@ -1,5 +1,4 @@
 import {Routes , Route, BrowserRouter} from 'react-router-dom';
-import Bill from './components/admin/Bill'
 import AdminDashBoard from './components/admin/AdminDashBoard'
 import AddProduct from './components/admin/AddProduct'
 import Products from  './components/users/Products'
@@ -19,7 +18,6 @@ function App() {
   return (
     <div className="App">
       <CartContext.Provider value={{cart,setCart}}>
-       
       <BrowserRouter>
       <Title/>
         <Routes>
@@ -27,7 +25,6 @@ function App() {
           <Route path="/adminDashboard" element={<AdminDashBoard/>}/>
           <Route path="/users/products" element={<Products/>}/>
           <Route path="/admin/add-product" element={<AddProduct/>}/>
-          <Route path="/bill" element={<Bill/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signin" element={<SignUp/>}/>
