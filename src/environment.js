@@ -1,5 +1,5 @@
 const env = {
-    apiUrl:"https://capstone-fsd.herokuapp.com"
+    apiUrl:"https://capstone-fsd.onrender.com"
 }
 
 export default env ;

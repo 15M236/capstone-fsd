@@ -4,13 +4,15 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from 'axios'
 import env from '../../environment';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
   const[email , setEmail] = useState('')
   const[password , setPassword] = useState('') 
   const[name , setName] = useState('')
   const[number , setNumber] = useState('') 
-  env.apiurl = "https://capstone-fsd.herokuapp.com"
+  const navigate = useNavigate()
+  env.apiurl = "https://capstone-fsd.onrender.com"
 
   const handleLogin = async() => {
     let res = await axios.post(`${env.apiurl}/users/signup`,{
@@ -23,6 +25,7 @@ export default function SignUp() {
     if(res.data.statusCode===200)
     {
      console.log("user creation successfully")
+     navigate('/login')
     }
   }
 

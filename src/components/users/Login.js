@@ -14,7 +14,7 @@ export default function Login() {
   let [toggle,setToggle]=useState(false)
   let [message,setMessage]=useState("")
   let navigate = useNavigate()
-  env.apiurl = "https://capstone-fsd.herokuapp.com"
+  env.apiurl = "https://capstone-fsd.onrender.com"
 
   let handleLogin = async ()=>{
     setToggle(true)
