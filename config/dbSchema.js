@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     number:{type:'string',require:true},
     email:{
         type:'string',
-        required:true,
+        required:true, 
         lowercase:true,
         validate:(value)=>{
             return validator.isEmail(value)

@@ -84,4 +84,5 @@ let adminGaurd = async(req,res,next)=>{
         })
     }
 }
+
 module.exports={hashPassword,hashCompare,createToken,decodeToken,validateToken,adminGaurd}

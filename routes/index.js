@@ -6,5 +6,8 @@ const {mongoose,usersModel,productModel,billModel,customerModel} = require('../c
 const {hashPassword,hashCompare,createToken,decodeToken,validateToken,adminGaurd} = require('../config/auth')
 mongoose.connect(dbUrl)
 
+router.get('/',(req,res,next) => {
+    res.render('index', { title: 'Express' });
+  } )
 
 module.exports = router;
