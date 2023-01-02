@@ -2,7 +2,6 @@ import React , {useState , useEffect , useContext} from 'react'
 import axios from 'axios';
 import env from '../../environment';
 import { useNavigate } from 'react-router-dom';
-
 import Button from 'react-bootstrap/Button';
 import { Archive , Trash } from 'react-bootstrap-icons';
 import AddProduct from '../admin/AddProduct';
@@ -16,7 +15,9 @@ export default function Products() {
   let role = sessionStorage.getItem('role');
   let token = sessionStorage.getItem('token');
   const img = "https://via.placeholder.com/150"
-  
+  const [visible , setVisible] = useState(false) 
+  const [data , setData] = useState([])
+
   const listProducts = async() =>{
     if(sessionStorage.getItem('token')) {
       let token = sessionStorage.getItem('token');
@@ -41,12 +42,11 @@ export default function Products() {
   }
   useEffect(() => { 
       listProducts();
-  },)
+  },[])
+
   const handleEdit = (product) => {
-    return <>
-      <AddProduct value={product}/>
-      </>
-    
+   setVisible(true)
+   setData(product)
   }
 
   const handleDelete = async(id) => {
@@ -63,12 +63,13 @@ export default function Products() {
     newArray.push(product);
     context.setCart(newArray);
   }
+  console.log(visible)
   return (
     <div>
       <h1>{session}</h1>
       {role === "admin" && <Button variant="primary" onClick={() => navigate("/admin/add-product")}>Add Product</Button>}
       {products.map((product,i) => {
-        return <div className='card-wrapper' key={i}>
+        return ( <div className='card-wrapper' key={i}>
           <div className='card-image'>
                 <img src={product.imageUrl?product.imageUrl:img} alt="" width={"150px"} height={"150px"}></img>
           </div>
@@ -84,13 +85,19 @@ export default function Products() {
                   <>
                   <Archive onClick={() => { 
                     handleEdit(product)}} /> 
+
                   <Trash onClick={() => {
                     handleDelete(product._id)}} />
                   </>: null}
                 </div>
               </div>
-        </div>
+              
+        </div>)
       })}
+      <div>
+      {visible && (<AddProduct value={data}/>)}
+      </div>
     </div>
+    
   )
 }

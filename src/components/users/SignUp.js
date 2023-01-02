@@ -10,7 +10,7 @@ export default function SignUp() {
   const[password , setPassword] = useState('') 
   const[name , setName] = useState('')
   const[number , setNumber] = useState('') 
-  env.apiurl = "http://localhost:4000"
+  env.apiurl = "https://capstone-fsd.herokuapp.com"
 
   const handleLogin = async() => {
     let res = await axios.post(`${env.apiurl}/users/signup`,{
