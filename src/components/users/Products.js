@@ -42,7 +42,7 @@ export default function Products() {
   }
   useEffect(() => { 
       listProducts();
-  },[])
+  })
 
   const handleEdit = (product) => {
    setVisible(true)
