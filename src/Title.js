@@ -20,7 +20,7 @@ function Title() {
         <div>
             <Navbar bg="light" variant="light">
               <Container>
-                <Navbar.Brand href="javascript(void)">We Mart</Navbar.Brand>
+                <Navbar.Brand href="/">We Mart</Navbar.Brand>
                   <Nav className="me-auto">
                     <Nav.Link onClick={() => navigate('/login')}>Login</Nav.Link>
                     <Nav.Link onClick={() => navigate('/signin')}>SignUp</Nav.Link>
