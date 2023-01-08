@@ -22,7 +22,7 @@ function Title() {
               <Container>
                 <Navbar.Brand href="/">We Mart</Navbar.Brand>
                   <Nav className="me-auto">
-                    <Nav.Link onClick={() => navigate('/login')}>Login</Nav.Link>
+                    {!role && <Nav.Link onClick={() => navigate('/login')}>Login</Nav.Link>}
                     <Nav.Link onClick={() => navigate('/signin')}>SignUp</Nav.Link>
                     <Nav.Link onClick={() => navigate('/cart')}>Cart {context.cart.length}</Nav.Link>
                     {role === 'admin' ? <Nav.Link onClick={() => navigate('/adminDashboard')}>DashBoard</Nav.Link> :
